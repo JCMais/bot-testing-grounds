@@ -3,7 +3,7 @@ interface Node {
 }
 
 type TypeI {
-  name
+  name: String
 }
 
 type TypeII {
