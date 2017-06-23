@@ -21,7 +21,6 @@ union UnionType = TypeI | TypeIII
 enum Status {
   ACTIVE
   INACTIVE
-  BANNED
 }
 
 type UserConnection {
