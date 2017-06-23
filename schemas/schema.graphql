@@ -8,7 +8,9 @@ type TypeI {
 
 scalar TypeII
 
-type TypeIII
+type TypeIII {
+  name: String
+}
 
 input TypeInput {
   name: String!
