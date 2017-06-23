@@ -22,6 +22,7 @@ type UserEdge {
 type User implements Node {
   id: ID!
   _id: String
+  nick: Int
 
 }
 
