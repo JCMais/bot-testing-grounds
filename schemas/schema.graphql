@@ -48,7 +48,6 @@ type Viewer implements Node {
   before: String
   search: String
   status: Status
-  type: TypeInput
 ): UserConnection
 }
 
