@@ -8,11 +8,13 @@ type TypeI {
 
 scalar TypeII
 
+type TypeIII
+
 input TypeInput {
   name: String!
 }
 
-union UnionType = TypeI | TypeII
+union UnionType = TypeI | TypeIII
 
 enum Status {
   ACTIVE
