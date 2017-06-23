@@ -60,8 +60,5 @@ type Viewer implements Node {
 }
 
 type Query {
-  node(
-  id: ID!
-): Node
   viewer: Viewer
 }
