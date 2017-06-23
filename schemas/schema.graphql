@@ -1,6 +1,3 @@
-interface Node {
-  id: ID!
-}
 
 type TypeI {
   name: String
@@ -33,13 +30,13 @@ type UserEdge {
   cursor: String!
 }
 
-type User implements Node {
+type User {
   id: ID!
   status: Status
   type: UnionType
 }
 
-type Viewer implements Node {
+type Viewer {
   id: ID!
   me: String
   user(id: ID): User
