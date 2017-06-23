@@ -34,7 +34,6 @@ type Viewer implements Node {
     after: String
     first: Int
     before: String
-    last: Int
     idsNotIn: [ID]
     search: String
   ): UserConnection
