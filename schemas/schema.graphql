@@ -47,7 +47,8 @@ type Viewer implements Node {
   first: Int
   before: String
   search: String
-  status: Status
+  status: Int
+  arg: Int!
 ): UserConnection
 }
 
