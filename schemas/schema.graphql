@@ -3,11 +3,11 @@ interface Node {
 }
 
 type TypeI {
-  name
+  name: String
 }
 
 type TypeII {
-  name
+  name: String
 }
 
 input TypeInput {
@@ -50,18 +50,18 @@ type Viewer implements Node {
   me: User
   user(id: ID): User
   users(
-    after: String
-    first: Int
-    before: String
-    search: String
-    status: Status
-    type: TypeInput
-  ): UserConnection
+  after: String
+  first: Int
+  before: String
+  search: String
+  status: Status
+  type: TypeInput
+): UserConnection
 }
 
 type Query {
   node(
-    id: ID!
-  ): Node
+  id: ID!
+): Node
   viewer: Viewer
 }
