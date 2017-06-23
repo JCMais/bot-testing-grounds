@@ -23,20 +23,18 @@ type User implements Node {
   id: ID!
   _id: String
 
-  nick: String
 }
 
 type Viewer implements Node {
   id: ID!
 
   me: User
-  user(id: ID, nick: String): User
+  user(id: ID): User
   users(
     after: String
     first: Int
     before: String
     last: Int
-    ids: [ID]
     idsNotIn: [ID]
     search: String
   ): UserConnection
