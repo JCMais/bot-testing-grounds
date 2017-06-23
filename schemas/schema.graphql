@@ -2,6 +2,26 @@ interface Node {
   id: ID!
 }
 
+type TypeI {
+  name: String
+}
+
+type TypeII {
+  name: String
+}
+
+input TypeInput {
+  name: String!
+}
+
+union UnionType = TypeI | TypeII
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  BANNED
+}
+
 type PageInfo {
   hasNextPage: Boolean!
   hasPreviousPage: Boolean!
@@ -21,30 +41,27 @@ type UserEdge {
 
 type User implements Node {
   id: ID!
-  _id: String
-
-  nick: String
+  status: Status
+  type: UnionType
 }
 
 type Viewer implements Node {
   id: ID!
-
   me: User
-  user(id: ID, nick: String): User
+  user(id: ID): User
   users(
-    after: String
-    first: Int
-    before: String
-    last: Int
-    ids: [ID]
-    idsNotIn: [ID]
-    search: String
-  ): UserConnection
+  after: String
+  first: Int
+  before: String
+  search: String
+  status: Status
+  type: TypeInput
+): UserConnection
 }
 
 type Query {
   node(
-    id: ID!
-  ): Node
+  id: ID!
+): Node
   viewer: Viewer
 }
