@@ -52,8 +52,10 @@ type User implements Node {
 
 type Viewer implements Node {
   id: ID!
-  me: User
-  user(id: ID): User
+  user(
+   id: ID
+   newArg: ID
+  ): User
   users(
   after: String
   first: Int
