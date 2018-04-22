@@ -52,7 +52,6 @@ type User implements Node {
 
 type Viewer implements Node {
   id: ID!
-  me: User
   user(
    id: ID
    newArg: ID
