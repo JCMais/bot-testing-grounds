@@ -1,27 +1,41 @@
+"""An Interface"""
+interface Node {
+  id: ID!
+}
 
 type TypeI {
   name: String
 }
 
-scalar TypeII
-
-type TypeIII {
+type TypeII {
+  """
+  A multiline 
+  comment
+  """
   name: String
 }
 
 input TypeInput {
   name: String!
-  status: Status!
 }
 
-union UnionType = TypeI | TypeIII
+union UnionType = TypeI | TypeII
 
 enum Status {
   ACTIVE
   INACTIVE
+  BANNED
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
 }
 
 type UserConnection {
+  pageInfo: PageInfo!
   edges: [UserEdge]
 }
 
@@ -30,26 +44,32 @@ type UserEdge {
   cursor: String!
 }
 
-type User {
+type User implements Node {
   id: ID!
   status: Status
   type: UnionType
 }
 
-type Viewer {
+type Viewer implements Node {
   id: ID!
-  me: String
-  user(id: ID): User
+  me: User
+  user(
+   id: ID
+   newArg: ID
+  ): User
   users(
   after: String
   first: Int
   before: String
   search: String
-  status: Int
-  arg: Int!
+  status: Status
+  type: TypeInput
 ): UserConnection
 }
 
 type Query {
+  node(
+  id: ID!
+): Node
   viewer: Viewer
 }
